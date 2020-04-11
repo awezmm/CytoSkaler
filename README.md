@@ -1,4 +1,5 @@
 # CytoSkaler
 CytoSkaler Main Repository
 
-![Image of Icon](https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/iconnn.png)
+<img src="https://octodex.github.com/images/yaktocat.png" alt="Kitten"
+	title="A cute kitten" width="150" height="100" />
