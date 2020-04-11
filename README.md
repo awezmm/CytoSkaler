@@ -1,4 +1,4 @@
 # CytoSkaler
 CytoSkaler Main Repository
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/iconnn.png)
