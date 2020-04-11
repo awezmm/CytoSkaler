@@ -1,7 +1,4 @@
-# CytoSkaler
+# CytoSkaler ![alt text][logo]
+[logo]: https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png "Logo Title Text 2"
 
 
-<p align="center">
-	<img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/iconnn.png" alt="Kitten"
-	title="Icon" width="150" height="150" />
-</p>
