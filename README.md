@@ -107,7 +107,9 @@ CytoSkaler can analyze 175 FOV images (each containing an average of 18 cells) i
 # How to Install the Graphical Interface
 1. Install the 2019A MAC version of MATLAB Runtime from https://www.mathworks.com/products/compiler/matlab-runtime.html 
 
-2. Download this repository. If are you familiar with terminal you can run ```git clone https://github.com/awezmm/CytoSkaler.git ``` to clone this repository. Otherwise, you can simply download a zip file from the 'clone or download' button on the main page.
+2. Download this repository. If are you familiar with terminal you can run 
+```git clone https://github.com/awezmm/CytoSkaler.git ``` 
+to clone this repository. Otherwise, you can simply download a zip file from the 'clone or download' button on the main page.
 
 3. Open the CytoSkaler folder and click on CytoSkaler.app to run
 
