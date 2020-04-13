@@ -2,8 +2,9 @@
 [logo]: https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png "Logo Title Text 2"
 CytoSkaler is an imaging tool that can quantify cellular distribution of antibody staining in sub-cellular areas. First, CytoSkaler uses deep-learning to segment densely populated sub-cellar regions in single image stains. Then, it analyzes pixel distribution patterns in specific regions to generate metrics that can quantify preferential binding at those specific regions.
 
-CytoSkaler provides otherwise unknown quantitative data on relative preference of binding to different sub-cellular structures, not accounted for by assays like polyreactivity ELISAs.
+CytoSkaler produces otherwise unknown quantitative data on relative preference of binding to different sub-cellular structures, not accounted for by assays like polyreactivity ELISAs.
 
+Other imaging tools provide methods just for cell segmentation. However, CytoSkaler provides a method for cell segmentaion and an automated pipeline after segmentation that outputs specific metrics to measure antibody binding strength and specificity in any subcellular area that a user defines.
 
 <p align="center">
   <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
@@ -66,8 +67,16 @@ Now, here are all of the boundaries we found from Step 1, being overlayed throug
 
 <img align="left"  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/allboundaryflow.png">
 
-CytoSkaler can be more precise by allowing custom boundary defintions. For instance, to be more precise, the "true" cytoplasm boundary would be found by subtracting the other subcellular areas(cytoskeleton and nucleus boundaries) from the cytoplasm boundary.
-A user can define any custom boundary using simple '-' 'U' characters with the names of the subcellular areas.
+CytoSkaler can be more precise by allowing custom boundary defintions. For instance, to be more precise, the "true" cytoplasm boundary would be found by subtracting the other subcellular areas(cytoskeleton and nucleus boundaries) from the cytoplasm boundary. 
+
+CytoSkaler gives the option of subtracting all other boundaries from each boundary. More simply, this means that every pixel in a whole cell will only be assigned to one subcellular area. 
+
+Here is an example of all the other subcellular boundaries (cytoskeleton and nucleus) are subtracted from the Cytoplasm boundary:
+
+<img align="left"  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/cytoplasmSubtraction.png">
+
+
+A user can define any custom boundary using the '-' 'U' characters (to subtract or add boundaries to another boundary)
 
 ### Using Mean Pixel Intensity as a metric for preferential antibody binding strength
 Let's take a look at the Mean Pixel Intesnity (MPI) values for the different "true" boundary subcellular areas we've found:
@@ -114,5 +123,32 @@ to clone this repository. Otherwise, you can simply download a zip file from the
 3. Open the CytoSkaler folder and click on CytoSkaler.app to run
 
 # How to use the Graphical Interface
+
+This video explains installation and running in greater detail:
+
+Demo images are included in the demo folder. 
+These demo images represent two individual sets and this is the ordering of the channel files:
+*00.tif = nucleus stain
+*01.tif = Antibody X stain
+*02.tif = Cytoskeleton Stain
+*03.tif = Cytoplasm Stain
+
+Your sets can have anywhere from 1-6 different channels. The files should all be named in the same order for each set and should all have the same extension type. Note that each set should not be in a separate folder. All the images should be in the same folder. Refer to how the demo folder is organized for clarification.
+
+
+In this first window, select the number of channels per each set (this would be 4 for the demo images). Then select the file extension for the images (this should be .tif for the demo images). Finally select the directory that holds all image sets (this should be the 'CytoSkaler/demo' directory for the demo images).
+
+<img  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demop1.png">
+
+After importing the folder, you will see a list of the order that MATLAB imports the images. This is simply there for your reference so you can assign name types correctly. Press save to continue.
+
+Next, you will assign information for each type of image stain. First give each channel a name. 
+For the demo images you could write the names: "Nucleus", "AntiX", "Cytoskeleton", "Cytoplasm". Next select the "type" for each channel. The nucleus channel should always be selected as "Binary Marker (Nucleus Stain)" type. The antibody channel should always be selected as the "Probe X (to compare)" type. Subcellular areas can be selected as the "Other Subcellular Stain" type. Finally, the skip option is avaiable to any extra files in a set you do not want included for analysis.
+
+Next select at least one neural net for each of the channels. If you have images that look vastly different than those used for the training of the neural nets then you select a classical thresholding algorithm. However, you must select at least one neural net for one image in the channel. This would be preferable for subcellular compartments like the cytoplasm becasue the neural will be able to easily segment the border around each cell, and then compartments found inside of the cell will be easier to segment with a classical thresholding algorithm.
+
+
+
+
 
 
