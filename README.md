@@ -50,7 +50,7 @@ where A and B represent different vectors, containing pixel intensity values, of
 
 From Step 1, CytoSkaler generated individual boundaries of subcellular areas. Here is the continuing example for one cell:
 
-<img align="left"  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/boundaryexamples.png">
+<img align="left" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/boundaryexamples.png">
 
 Now, to find antibody cellular distrubtion in a subcellular region like the Cytoplasm, we can simply overlay the mask. Recall, our orignal Antibody X stain image.
 
@@ -60,8 +60,45 @@ Now, here are all of the boundaries we found from Step 1, being overlayed throug
 
 <img align="left"  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/allboundaryflow.png">
 
-CytoSkaler can be more precise by allowing custom boundary defintions. For instance, to be more precise the "true" cytoplasm boundary would be found by subtracting the cytoskeleton and nucleus boundaries from the cytoplasm boundary:
+CytoSkaler can be more precise by allowing custom boundary defintions. For instance, to be more precise, the "true" cytoplasm boundary would be found by subtracting the other subcellular areas(cytoskeleton and nucleus boundaries) from the cytoplasm boundary.
+A user can define any custom boundary using simple '-' 'U' characters with the names of the subcellular areas.
 
+### Using Mean Pixel Intensity as a metric for preferential antibody binding strength
+Let's take a look at the Mean Pixel Intesnity (MPI) values for the different "true" boundary subcellular areas we've found:
+
+| Subcellular Area  | MPI   |
+| ----------------- |:-----:|
+| Nucleus           | 2114.1|
+| Cytoskeleton      | 2369.7|
+| Cytoplasm         | 1781.0|
+| Whole Cell        | 1961.5|
+
+A larger mean pixel intensity value indicates stronger preferential binding in that specific region. Remember the data here is just from 1 cell. With more cells we can determine the significance of these differences for this type of antibody.
+
+
+### Using Pearson's Correlation as a metric for binding specificty
+
+CytoSkaler calculates the Pearson's correlation coefficient after subcellular boundaries have been defined using a specific boundary overlayed onto it's corresponding orginal grayscale subcellular image and on the Antibody X grayscale image. Here are the correlation coefficient values for the same subcellular areas above:
+
+
+| Colocalization Boundaries | Correlation Coefficient |
+|---------------------------|:-----------------------:|
+| Anti X vs Nucleus         |          0.0872         |
+| Anti X vs Cytoskeleton    |          0.2263         |
+| Anti X vs Cytoplasm       |          0.2651         |
+
+### Note about these metrics
+It is important to understand the nuanced difference between relative antibody binding strength and specificity. Moreover, these metrics are for a single cell. 
+Most importantly, these images are for a single antibody. It is more valuable to compare these metrics against a different antibody to reveal important differences.
+
+CytoSkaler conveniently ouputs these metrics in an excel file while grouping cells from accross different anitbody.
+
+On the 2018 Apple iMac (8GB 2133MHz memory, 2.3GHz dual-core 7th-generation Intel Core i5 processor),
+CytoSkaler can analyze 175 FOV images (each containing an average of 18 cells) in about 30 minutes. This means that it can roughly analyze 3,200 cells in 30 minutes or about 100 cells per minute.
+
+<p align="center">
+  <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
+</p>
 
 
 
