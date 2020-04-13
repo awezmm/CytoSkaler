@@ -9,6 +9,12 @@ CytoSkaler provides otherwise unknown quantitative data on relative preference o
   <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
 </p>
 
+# Requirements to Run
+1. Mac OS 10.14.6 or later
+2. MATLAB 2019A Runtime (https://www.mathworks.com/products/compiler/matlab-runtime.html) (install the 2019A MAC version)
+
+A version for Windows and Linux will be released soon. The MATLAB Runtime is a free driver that allows you to tun compiled MATLAB applications or components without installing MATLAB
+
 
 # Type of Data to Use 
 CytoSkaler uses one or multiple image sets for analysis. A single image set is a collection of stain images that focus on the same field of view (FOV). 
@@ -96,11 +102,15 @@ CytoSkaler conveniently ouputs these metrics in an excel file while grouping cel
 On the 2018 Apple iMac (8GB 2133MHz memory, 2.3GHz dual-core 7th-generation Intel Core i5 processor),
 CytoSkaler can analyze 175 FOV images (each containing an average of 18 cells) in about 30 minutes. This means that it can roughly analyze 3,200 cells in 30 minutes or about 100 cells per minute.
 
-<p align="center">
-  <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
-</p>
 
 
+# How to Install the Graphical Interface
+1. Install the 2019A MAC version of MATLAB Runtime from https://www.mathworks.com/products/compiler/matlab-runtime.html 
 
+2. Download this repository. If are you familiar with terminal you can run ```git clone https://github.com/awezmm/CytoSkaler.git ``` to clone this repository. Otherwise, you can simply download a zip file from the 'clone or download' button on the main page.
+
+3. Open the CytoSkaler folder and click on CytoSkaler.app to run
+
+# How to use the Graphical Interface
 
 
