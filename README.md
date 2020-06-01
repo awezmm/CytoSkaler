@@ -14,7 +14,7 @@ It provides a method for cell segmentaion and an automated pipeline after segmen
 1. Mac OS 10.14.6 or later
 2. MATLAB 2019A Runtime (https://www.mathworks.com/products/compiler/matlab-runtime.html) (install the 2019A MAC version)
 
-A version for Windows and Linux will be released soon. The MATLAB Runtime is a free driver that allows you to tun compiled MATLAB applications or components without installing MATLAB
+A version for Windows and Linux will be released soon. The MATLAB Runtime is a free driver that allows you to run compiled MATLAB applications or components without installing MATLAB
 
 
 # Type of Data to Use 
@@ -26,6 +26,7 @@ Here is an example of a single image set:
 These images all represent the same FOV. They specifically provide stains of the nucleus, cytoskeleton, and cytoplasm sub-cellular areas. The 4th image gives a stain of an antibody. In this case, CytoSkaler would quantify preferential binding of that antibody in the nucleus, cytoskeleton, and cytoplasm for each individual cell. 
 
 However, CytoSkaler can quantify preferential binding in any type of sub-cellular region the user specifies.
+
 
 # Methodology
 
@@ -73,8 +74,7 @@ CytoSkaler gives the option of subtracting all other boundaries from each bounda
 
 Here is an example of all the other subcellular boundaries (cytoskeleton and nucleus) are subtracted from the Cytoplasm boundary:
 
-<img align="left"  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/cytoplasmSubtraction.png">
-
+<img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/cytoplasmSubtraction.png">
 
 A user can define any custom boundary using the '-' 'U' characters (to subtract or add boundaries to another boundary)
 
@@ -128,9 +128,13 @@ This video explains installation and running in greater detail:
 
 Let's walk through an example using the demo images provided in the demo folder. 
 First, note the ordering of the demo imges. Theres 2 images sets with this channel ordering:
+
 *00.tif = nucleus stain
+
 *01.tif = Antibody X stain
+
 *02.tif = Cytoskeleton Stain
+
 *03.tif = Cytoplasm Stain
 
 CytoSkaler accepts any number of sets with 1-6 different channels. The files should all be named in the same order for each set and should all have the same extension type. All images from all sets should be in the same single folder, like the demo folder.
@@ -162,17 +166,23 @@ Binary segmentation Coordinates will provide the X and Y coordinates of each seg
 MPI provides mean pixel intensity values for a custom region overlayed onto the Antibody probe channel. 
 Correlation Coefficients are simply the correlation values explained above between every whole subcellular area and the antibody probe channel.
 The binary segmentation figure will provide images of each segmented subcellular area.
-The subcellular segmentation color overlay will provide overlays of segmented areas over the whole cellular region.
 
-**Custom regions can be defined for calculating MPI by writing specifications, as separate lines, into the text box on the right, that appears when you click the MPI option**. Use the channel names you defined earlier to create custom boundaries and the 'U' and '-' characters with a space between every boundary and operator.
+**Custom regions can be defined for calculating MPI by writing specifications, as separate lines, into the text box on the right, that appears when you click the MPI option**. 
+
+Use the channel names you defined earlier to create custom boundaries and the 'U' and '-' characters with a space between every boundary and operator.
+
 The 'U' character represents a union between two regions and the '-' represents a subtraction between two regions.
 
-If you wanted the MPI of the cytoskeleton region overlayed on the Antibody probe, you would simply write: Cytoskeleton 
-If you wanted the MPI of the cytoskeleton region (with the nucelus region subtracted), overlayed on the Antibody probe, you would simply write: Cytoskeleton - Nucleus
-If you wanted the MPI of the cytoskeleton region (with the cytoplasm region added), overlayed on the Antibody probe, you would simply write Cytoskeleton U Cytoplasm
+* If you wanted the MPI of the cytoskeleton region overlayed on the Antibody probe, you would simply write: Cytoskeleton 
+
+* If you wanted the MPI of the cytoskeleton region (with the nucelus region subtracted), overlayed on the Antibody probe, you would simply write: Cytoskeleton - Nucleus
+
+* If you wanted the MPI of the cytoskeleton region (with the cytoplasm region added), overlayed on the Antibody probe, you would simply write Cytoskeleton U Cytoplasm
 
 Note that this can also apply to more complex defintions, with more than 2 regions, like: 
+
 Nuclues U Cytoskeleton U Cytoplasm - Nucleus
+
 This would indicate a whole cell region with a subtraction of the nucleus region (a whole cell region is defined by a union of all subcellular areas)
 
 First this demo, let do two custom boundaries: Nucleus - Cytoskeleton and Cytoskeleton - Nuclues.
@@ -180,6 +190,7 @@ This is what the text box shoud look like for those custom boundaries:
 
 <img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demo4.png">
 
-Finally, **select an output directory** to hold all output data files. **Click run to begin**.
+Finally, **select an output directory** to write all output data files to. **Click run to begin**.
 
 
+The output data will have metrics for each cell in csv files in separate folders. Each set will also have a csv file with metrics for all cells in the set and a final csv file will contain metrics for all cells in all sets. The tablenames for the stats csv files can found in the tablenames.txt file. Images and X/Y coordinate files will also be found in each subfolder.
