@@ -126,29 +126,60 @@ to clone this repository. Otherwise, you can simply download a zip file from the
 
 This video explains installation and running in greater detail:
 
-Demo images are included in the demo folder. 
-These demo images represent two individual sets and this is the ordering of the channel files:
+Let's walk through an example using the demo images provided in the demo folder. 
+First, note the ordering of the demo imges. Theres 2 images sets with this channel ordering:
 *00.tif = nucleus stain
 *01.tif = Antibody X stain
 *02.tif = Cytoskeleton Stain
 *03.tif = Cytoplasm Stain
 
-Your sets can have anywhere from 1-6 different channels. The files should all be named in the same order for each set and should all have the same extension type. Note that each set should not be in a separate folder. All the images should be in the same folder. Refer to how the demo folder is organized for clarification.
+CytoSkaler accepts any number of sets with 1-6 different channels. The files should all be named in the same order for each set and should all have the same extension type. All images from all sets should be in the same single folder, like the demo folder.
 
+First, **select the number of channels per each set and the file extension for the images**. In the demo folder, there are 4 channels per set and the file extension is .tif.
 
-In this first window, select the number of channels per each set (this would be 4 for the demo images). Then select the file extension for the images (this should be .tif for the demo images). Finally select the directory that holds all image sets (this should be the 'CytoSkaler/demo' directory for the demo images).
+Next, **select the directory that holds all image sets**. This would be the 'CytoSkaler/demo' directory for the demo images
 
-<img  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demop1.png">
+Here's what your window should look like after these steps:
+<img  src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demo1.png">
 
-After importing the folder, you will see a list of the order that MATLAB imports the images. This is simply there for your reference so you can assign name types correctly. Press save to continue.
+On the right side, you will a list of the order in which CytoSkaler will process the images. Refer to this order when you assign image specification later. Press save to continue.
 
-Next, you will assign information for each type of image stain. First give each channel a name. 
-For the demo images you could write the names: "Nucleus", "AntiX", "Cytoskeleton", "Cytoplasm". Next select the "type" for each channel. The nucleus channel should always be selected as "Binary Marker (Nucleus Stain)" type. The antibody channel should always be selected as the "Probe X (to compare)" type. Subcellular areas can be selected as the "Other Subcellular Stain" type. Finally, the skip option is avaiable to any extra files in a set you do not want included for analysis.
+Now assign information for each type of image channel. First, **give each channel a name**. 
+Possible names for the demo channels could simply be: "Nucleus", "AntiX", "Cytoskeleton", "Cytoplasm".
 
-Next select at least one neural net for each of the channels. If you have images that look vastly different than those used for the training of the neural nets then you select a classical thresholding algorithm. However, you must select at least one neural net for one image in the channel. This would be preferable for subcellular compartments like the cytoplasm becasue the neural will be able to easily segment the border around each cell, and then compartments found inside of the cell will be easier to segment with a classical thresholding algorithm.
+Next, **select the "type" for each channel.** 
+A nuclues stain is required and should always be selected "Binary Marker (Nucleus Stain)" type. The antibody channel should always be selected as the "Probe X (to compare)" type. Subcellular areas can be selected as the "Other Subcellular Stain" type. Finally, the "skip" option type is avaiable to any extra files in a set you do not want included for analysis.
 
+Next, **specify the segmentation strategy to use for each subcellular area** The neural networks were trained on a vast sample of images so look at the trainig set to see which one more closely relates with your data. 
 
+Here is what you window should look like after filling out this information:
+<img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demo2.png">
 
+Next, **select the type of data you want to output**.
 
+<img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demo3.png">
+Binary segmentation Coordinates will provide the X and Y coordinates of each segmented subcellular area.
+MPI provides mean pixel intensity values for a custom region overlayed onto the Antibody probe channel. 
+Correlation Coefficients are simply the correlation values explained above between every whole subcellular area and the antibody probe channel.
+The binary segmentation figure will provide images of each segmented subcellular area.
+The subcellular segmentation color overlay will provide overlays of segmented areas over the whole cellular region.
+
+**Custom regions can be defined for calculating MPI by writing specifications, as separate lines, into the text box on the right, that appears when you click the MPI option**. Use the channel names you defined earlier to create custom boundaries and the 'U' and '-' characters with a space between every boundary and operator.
+The 'U' character represents a union between two regions and the '-' represents a subtraction between two regions.
+
+If you wanted the MPI of the cytoskeleton region overlayed on the Antibody probe, you would simply write: Cytoskeleton 
+If you wanted the MPI of the cytoskeleton region (with the nucelus region subtracted), overlayed on the Antibody probe, you would simply write: Cytoskeleton - Nucleus
+If you wanted the MPI of the cytoskeleton region (with the cytoplasm region added), overlayed on the Antibody probe, you would simply write Cytoskeleton U Cytoplasm
+
+Note that this can also apply to more complex defintions, with more than 2 regions, like: 
+Nuclues U Cytoskeleton U Cytoplasm - Nucleus
+This would indicate a whole cell region with a subtraction of the nucleus region (a whole cell region is defined by a union of all subcellular areas)
+
+First this demo, let do two custom boundaries: Nucleus - Cytoskeleton and Cytoskeleton - Nuclues.
+This is what the text box shoud look like for those custom boundaries:
+
+<img src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/Demo4.png">
+
+Finally, **select an output directory** to hold all output data files. **Click run to begin**.
 
 
