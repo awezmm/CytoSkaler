@@ -4,7 +4,7 @@ CytoSkaler is an imaging tool that can quantify cellular distribution of antibod
 
 CytoSkaler produces otherwise unknown quantitative data on relative preference of binding to different sub-cellular structures, not accounted for by assays like polyreactivity ELISAs.
 
-Other imaging tools provide methods just for cell segmentation. However, CytoSkaler provides a method for cell segmentaion and an automated pipeline after segmentation that outputs specific metrics to measure antibody binding strength and specificity in any subcellular area that a user defines.
+It provides a method for cell segmentaion and an automated pipeline after segmentation that outputs specific metrics to measure antibody binding strength and specificity in any subcellular area that a user defines.
 
 <p align="center">
   <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
