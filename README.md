@@ -126,7 +126,7 @@ to clone this repository. Otherwise, you can simply download a zip file from the
 
 5. Type ```./setup.sh``` and press enter.
 
-6. There should now be a CytoSkaler application in the folder. Click it to begin.
+6. There should now be a CytoSkaler application in the folder. Right click it and press open to begin.
 
 # How to use the Graphical Interface
 
