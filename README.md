@@ -120,7 +120,13 @@ CytoSkaler can analyze 175 FOV images (each containing an average of 18 cells) i
 ```git clone https://github.com/awezmm/CytoSkaler.git ``` 
 to clone this repository. Otherwise, you can simply download a zip file from the 'clone or download' button on the main page.
 
-3. Open the CytoSkaler folder and click on CytoSkaler.app to run
+3. Open Terminal and navigate to the directory of this downloaded repository.
+
+4. Type ```chmod +x setup``` and press enter.
+
+5. Type ```./setup.sh``` and press enter.
+
+6. There should now be a CytoSkaler application in the folder. Click it to begin.
 
 # How to use the Graphical Interface
 
