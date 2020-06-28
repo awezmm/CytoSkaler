@@ -1,9 +1,18 @@
 #!/bin/bash
 
-curl https://people.cs.uchicago.edu/~aamohsin/CytoSkaler.app.tar.gz > CytoSkaler.app.tar.gz
+curl https://people.cs.uchicago.edu/~aamohsin/distribution.tar.gz > distribution.tar.gz
 
-tar xvzf CytoSkaler.app.tar.gz
+tar xvzf distribution.tar.gz
 
-rm CytoSkaler.app.tar.gz
+rm distribution.tar.gz
+
+cd distribution
+
+mv * ../
+
+cd ..
+
+rm distribution
+
 
 
