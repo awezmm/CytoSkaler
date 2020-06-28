@@ -12,7 +12,7 @@ mv * ../
 
 cd ..
 
-rm distribution
+rm -rf distribution
 
 
 
