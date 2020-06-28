@@ -33,6 +33,6 @@ echo "export DYLD_LIBRARY_PATH=/Applications/MATLAB/MATLAB_Runtime/v96/runtime/m
 echo " " >> ~/.bash_profile
 
 
-
+rm ~/.CytoSkalerInfo
 pwd >> ~/.CytoSkalerInfo
 
