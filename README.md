@@ -122,7 +122,7 @@ to clone this repository. Otherwise, you can simply download a zip file from the
 
 3. Open Terminal and navigate to the directory of this downloaded repository.
 
-4. Type ```chmod +x setup``` and press enter.
+4. Type ```chmod +x setup.sh``` and press enter.
 
 5. Type ```./setup.sh``` and press enter.
 
