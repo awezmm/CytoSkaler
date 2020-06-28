@@ -34,5 +34,5 @@ echo " " >> ~/.bash_profile
 
 
 
-echo "$pwd" >> ~/.CytoSkalerInfo
+pwd >> ~/.CytoSkalerInfo
 
