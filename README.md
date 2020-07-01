@@ -11,7 +11,7 @@ It provides a method for cell segmentaion and an automated pipeline after segmen
 </p>
 
 # Requirements to Run
-1. Mac OS 10.14.6 or later
+1. Mac OS 10.14.* 
 2. MATLAB 2019A Runtime (https://www.mathworks.com/products/compiler/matlab-runtime.html) (install the 2019A MAC version)
 
 A version for Windows and Linux will be released soon. The MATLAB Runtime is a free driver that allows you to run compiled MATLAB applications or components without installing MATLAB
