@@ -16,6 +16,7 @@ It provides a method for cell segmentaion and an automated pipeline after segmen
 
 A version for Windows and Linux will be released soon. The MATLAB Runtime is a free driver that allows you to run compiled MATLAB applications or components without installing MATLAB
 
+YouTube walkthrough link: https://youtu.be/k884oSdpD8s
 
 # Type of Data to Use 
 CytoSkaler uses one or multiple image sets for analysis. A single image set is a collection of stain images that focus on the same field of view (FOV). 
@@ -131,6 +132,8 @@ to clone this repository. Otherwise, you can simply download a zip file from the
 # How to use the Graphical Interface
 
 This video explains installation and running in greater detail:
+https://youtu.be/k884oSdpD8s
+
 
 Let's walk through an example using the demo images provided in the demo folder. 
 First, note the ordering of the demo imges. Theres 2 images sets with this channel ordering:
