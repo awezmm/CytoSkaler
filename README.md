@@ -10,6 +10,9 @@ It provides a method for cell segmentaion and an automated pipeline after segmen
   <img width="100" height="100" src="https://github.com/awezmm/CytoSkaler/blob/master/imagesForREADME/icon_resized.png">
 </p>
 
+
+Contact aamohsin@uchicago.edu for any questions.
+
 # Requirements to Run
 1. Mac OS 10.14.* 
 2. MATLAB 2019A Runtime (https://www.mathworks.com/products/compiler/matlab-runtime.html) (install the 2019A MAC version)
