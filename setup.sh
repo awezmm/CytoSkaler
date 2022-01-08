@@ -8,7 +8,9 @@ fi
 
 
 #curl https://people.cs.uchicago.edu/~aamohsin/distribution.tar.gz > distribution.tar.gz && tar xvzf distribution.tar.gz && rm distribution.tar.gz && cd distribution && mv * ../ && cd .. && rm -rf distribution
-cat DistributionParts/* > distribution.tar.gz && rm -rf DistributionParts && tar xvzf distribution.tar.gz && rm distribution.tar.gz && cd distribution && mv * ../ && cd .. && rm -rf distribution
+#cat DistributionParts/* > distribution.tar.gz && rm -rf DistributionParts && tar xvzf distribution.tar.gz && rm distribution.tar.gz && cd distribution && mv * ../ && cd .. && rm -rf distribution
+cat DistributionParts/* > distribution.tar.gz && rm -rf DistributionParts && tar xvzf distribution.tar.gz && rm distribution.tar.gz && cp distribution/* . && rm -rf distribution
+
 
 echo " " >> ~/.bashrc
 echo "# MATLAB 2019A Runtime Path Append" >> ~/.bashrc
